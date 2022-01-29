@@ -27,5 +27,4 @@ public class MessageModel <T>{
         this.t = t;
     }
 
-
 }

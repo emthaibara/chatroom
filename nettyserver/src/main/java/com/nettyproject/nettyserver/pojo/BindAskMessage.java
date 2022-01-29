@@ -5,6 +5,8 @@ package com.nettyproject.nettyserver.pojo;
  * @time:2022/1/25
  */
 
-public class BindAskMessage extends AbstractMessage{
+public class BindAskMessage {
+
+    private String bidToken;
 
 }

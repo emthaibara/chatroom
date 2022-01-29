@@ -1,11 +1,22 @@
 package com.nettyproject.nettyserver.pojo;
-
 /**
- * @Author:SCBC_LiYongJie
- * @time:2022/1/25
- */
+ *
+ *@Author:SCBC_LiYongJie
+ *@time:2022/1/25
+ *
+*/
 
 
-public class ForceOfflineMessage extends AbstractMessage{
+public class ForceOfflineMessage {
+    /**
+     * 发起者
+     */
+    protected long sender;
 
+    /**
+     * 接收者
+     */
+    protected long receiver;
+
+    private String token;
 }

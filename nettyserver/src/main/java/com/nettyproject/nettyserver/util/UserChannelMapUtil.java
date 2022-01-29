@@ -18,7 +18,7 @@ public class UserChannelMapUtil {
     private static final ChannelGroup CHANNEL_GROUP = new DefaultChannelGroup(GlobalEventExecutor.INSTANCE);
     private static final Map<Long, Channel> USER_CHANNEL = new ConcurrentHashMap<>(256);
 
-    public static void bind(long uuid,Channel channel){
+    public static void doBind(long uuid,Channel channel){
 
     }
 
@@ -29,7 +29,4 @@ public class UserChannelMapUtil {
     public static void unBind(Channel channel){
 
     }
-
-
-
 }

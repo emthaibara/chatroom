@@ -6,6 +6,16 @@ package com.nettyproject.nettyserver.pojo;
  */
 
 
-public class FriendRequestMessage extends AbstractMessage{
+public class FriendRequestMessage {
+    /**
+     * 发起者
+     */
+    protected long sender;
 
+    /**
+     * 接收者
+     */
+    protected long receiver;
+
+    private String token;
 }

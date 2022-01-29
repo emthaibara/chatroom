@@ -5,6 +5,16 @@ package com.nettyproject.nettyserver.pojo;
  * @time:2022/1/25
  */
 
-public class GroupChatMessage extends AbstractMessage{
+public class GroupChatMessage{
+    /**
+     * 发起者
+     */
+    protected long sender;
 
+    /**
+     * 接收者
+     */
+    protected long receiver;
+
+    private String token;
 }
