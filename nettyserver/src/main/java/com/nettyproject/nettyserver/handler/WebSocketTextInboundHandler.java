@@ -4,7 +4,6 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.nettyproject.nettyserver.enums.MessageTypeEnum;
 import com.nettyproject.nettyserver.pojo.*;
-import com.nettyproject.nettyserver.util.SpringContextUtils;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;
@@ -13,7 +12,6 @@ import io.netty.handler.codec.http.websocketx.TextWebSocketFrame;
 import io.netty.handler.codec.http.websocketx.WebSocketServerProtocolHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 
 /**
  * @Author:SCBC_LiYongJie
@@ -28,8 +26,8 @@ public class WebSocketTextInboundHandler extends SimpleChannelInboundHandler<Tex
 
     private final SendMessageHandler handler;
 
-    public WebSocketTextInboundHandler() {
-        handler = SpringContextUtils.getContext().getBean(SendMessageHandler.class);
+    public WebSocketTextInboundHandler(SendMessageHandler handler) {
+        this.handler = handler;
     }
 
     @Override
@@ -43,6 +41,7 @@ public class WebSocketTextInboundHandler extends SimpleChannelInboundHandler<Tex
     private static final String DATA = "data";
 
     private void handle(JSONObject jsonObject, Channel channel) {
+
         final Integer type = jsonObject.getObject(TYPE,Integer.class);
 
         //不同消息类型区分不同的事务
@@ -84,6 +83,8 @@ public class WebSocketTextInboundHandler extends SimpleChannelInboundHandler<Tex
 
     @Override
     public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
+        //异常信息其实可以包装一下--这里简化了
+        ctx.channel().writeAndFlush(cause.getMessage());
         ctx.close();
         log.error("异常信息："+cause.getMessage());
     }

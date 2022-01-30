@@ -1,5 +1,6 @@
 package com.nettyproject.nettyserver.server;
 
+import com.nettyproject.nettyserver.handler.SendMessageHandler;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelOption;
@@ -13,6 +14,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 
 import javax.annotation.PreDestroy;
+import javax.annotation.Resource;
 import java.net.InetSocketAddress;
 import java.util.Objects;
 
@@ -44,6 +46,9 @@ public class NettyServer {
 
     private Channel channel;
 
+    @Resource
+    private SendMessageHandler sendMessageHandler;
+
     public void start() {
         try {
             ServerBootstrap serverBootstrap = new ServerBootstrap();
@@ -52,7 +57,7 @@ public class NettyServer {
                     .option(ChannelOption.SO_KEEPALIVE, true)
                     .option(ChannelOption.CONNECT_TIMEOUT_MILLIS, 500)
                     .channel(NioServerSocketChannel.class)
-                    .childHandler(new SocketChannelInitializer(handshakePath));
+                    .childHandler(new SocketChannelInitializer(handshakePath,sendMessageHandler));
 
             // 绑定端口并异步等待
             InetSocketAddress serverAddress = new InetSocketAddress(hostname,port);
@@ -71,7 +76,5 @@ public class NettyServer {
         boosGroup.shutdownGracefully();
         workGroup.shutdownGracefully();
     }
-
-
 
 }

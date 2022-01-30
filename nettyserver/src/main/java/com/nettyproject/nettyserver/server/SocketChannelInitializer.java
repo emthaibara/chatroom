@@ -1,5 +1,6 @@
 package com.nettyproject.nettyserver.server;
 
+import com.nettyproject.nettyserver.handler.SendMessageHandler;
 import com.nettyproject.nettyserver.handler.WebSocketTextInboundHandler;
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.socket.nio.NioSocketChannel;
@@ -16,8 +17,11 @@ public class SocketChannelInitializer extends ChannelInitializer<NioSocketChanne
 
     private final String handshakePath;
 
-    public SocketChannelInitializer(String handshakePath) {
+    private final SendMessageHandler sendMessageHandler;
+
+    public SocketChannelInitializer(String handshakePath,SendMessageHandler sendMessageHandler) {
         this.handshakePath = handshakePath;
+        this.sendMessageHandler = sendMessageHandler;
     }
 
     @Override
@@ -29,11 +33,10 @@ public class SocketChannelInitializer extends ChannelInitializer<NioSocketChanne
                 .addLast(new HttpServerCodec())
                 //消息聚合器，解决粘包半包等问题
                 .addLast(new HttpObjectAggregator(65536))
-                .addLast(new ChunkedWriteHandler())
                 //netty封装的专门用于处理websocket连接的各种事务处理，如ping pong 请求的处理，协议升级
                 .addLast(new WebSocketServerProtocolHandler(handshakePath))
                 //websocket连接建立后，文本消息处理器
-                .addLast(new WebSocketTextInboundHandler());
+                .addLast(new WebSocketTextInboundHandler(sendMessageHandler));
     }
 
 }

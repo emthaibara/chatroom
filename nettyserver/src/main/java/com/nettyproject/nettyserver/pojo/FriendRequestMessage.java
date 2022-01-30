@@ -7,6 +7,7 @@ package com.nettyproject.nettyserver.pojo;
 
 
 public class FriendRequestMessage extends AbstractMessage{
+
     /**
      * 发起者
      */
@@ -16,7 +17,6 @@ public class FriendRequestMessage extends AbstractMessage{
      * 接收者
      */
     private String receiver;
-
 
     public String getSender() {
         return sender;

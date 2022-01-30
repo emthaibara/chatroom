@@ -22,11 +22,11 @@ public class TestController {
     public String message(){
         PrivateChatMessage privateChatMessage = new PrivateChatMessage();
         privateChatMessage.setSender("187872718L");
-        privateChatMessage.setToken("7812dgh19819hnoo12jdi");
+        //privateChatMessage.setToken("7812dgh19819hnoo12jdi");
         privateChatMessage.setReceiver("721982891L");
-        System.out.println(privateChatMessage.getClass());
         sendMessageHandler.sendToAFriendMsg(privateChatMessage);
         return "Hello World";
     }
+
 
 }

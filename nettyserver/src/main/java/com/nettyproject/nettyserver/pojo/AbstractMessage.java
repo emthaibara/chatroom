@@ -4,7 +4,7 @@ package com.nettyproject.nettyserver.pojo;
  * @Author:SCBC_LiYongJie
  * @time:2022/1/30
  */
-public class AbstractMessage {
+public abstract class AbstractMessage {
 
     protected String token;
 

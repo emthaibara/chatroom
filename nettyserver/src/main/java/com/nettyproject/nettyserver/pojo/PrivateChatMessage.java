@@ -17,12 +17,15 @@ public class PrivateChatMessage extends AbstractMessage{
      */
     private String receiver;
 
+    private String message;
+
     @Override
     public String toString() {
         return "PrivateChatMessage{" +
-                "sender=" + sender +
-                ", receiver=" + receiver +
-                ", token='" + token + '\'' +
+                "token='" + token + '\'' +
+                ", sender='" + sender + '\'' +
+                ", receiver='" + receiver + '\'' +
+                ", message='" + message + '\'' +
                 '}';
     }
 
@@ -40,5 +43,13 @@ public class PrivateChatMessage extends AbstractMessage{
 
     public void setReceiver(String receiver) {
         this.receiver = receiver;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
     }
 }

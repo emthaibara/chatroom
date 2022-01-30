@@ -6,7 +6,6 @@ package com.nettyproject.nettyserver.pojo;
  *
 */
 
-
 public class ForceOfflineMessage extends AbstractMessage{
 
     /**
@@ -34,4 +33,5 @@ public class ForceOfflineMessage extends AbstractMessage{
     public void setReceiver(String receiver) {
         this.receiver = receiver;
     }
+
 }

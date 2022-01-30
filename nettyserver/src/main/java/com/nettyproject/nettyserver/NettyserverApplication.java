@@ -8,7 +8,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import javax.annotation.Resource;
 
 @SpringBootApplication
-
 public class NettyserverApplication implements CommandLineRunner {
 
     @Resource

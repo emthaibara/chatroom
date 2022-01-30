@@ -1,6 +1,6 @@
 package com.nettyproject.nettyserver.pojo;
 
-import java.util.List;
+import java.util.ArrayList;
 
 /**
  * @Author:SCBC_LiYongJie
@@ -17,7 +17,19 @@ public class GroupChatMessage extends AbstractMessage{
     /**
      * 接收者
      */
-    private List<String> group;
+    private ArrayList<String> receivers;
+
+    private String message;
+
+    @Override
+    public String toString() {
+        return "GroupChatMessage{" +
+                "token='" + token + '\'' +
+                ", sender='" + sender + '\'' +
+                ", receivers=" + receivers +
+                ", message='" + message + '\'' +
+                '}';
+    }
 
     public String getSender() {
         return sender;
@@ -27,11 +39,19 @@ public class GroupChatMessage extends AbstractMessage{
         this.sender = sender;
     }
 
-    public List<String> getGroup() {
-        return group;
+    public ArrayList<String> getReceivers() {
+        return receivers;
     }
 
-    public void setGroup(List<String> group) {
-        this.group = group;
+    public void setReceivers(ArrayList<String> receivers) {
+        this.receivers = receivers;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
     }
 }

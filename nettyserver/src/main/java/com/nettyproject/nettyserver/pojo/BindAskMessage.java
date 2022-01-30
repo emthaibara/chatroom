@@ -7,24 +7,4 @@ package com.nettyproject.nettyserver.pojo;
 
 public class BindAskMessage extends AbstractMessage{
 
-    private Boolean bindResult = false;
-
-    private String codeMsg;
-
-    public String getCodeMsg() {
-        return codeMsg;
-    }
-
-    public void setCodeMsg(String codeMsg) {
-        this.codeMsg = codeMsg;
-    }
-
-    public Boolean getBindResult() {
-        return bindResult;
-    }
-
-    public void setBindResult(Boolean bindResult) {
-        this.bindResult = bindResult;
-    }
-
 }
