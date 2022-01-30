@@ -1,20 +1,37 @@
 package com.nettyproject.nettyserver.pojo;
 
+import java.util.List;
+
 /**
  * @Author:SCBC_LiYongJie
  * @time:2022/1/25
  */
 
-public class GroupChatMessage{
+public class GroupChatMessage extends AbstractMessage{
+
     /**
      * 发起者
      */
-    protected long sender;
+    private String sender;
 
     /**
      * 接收者
      */
-    protected long receiver;
+    private List<String> group;
 
-    private String token;
+    public String getSender() {
+        return sender;
+    }
+
+    public void setSender(String sender) {
+        this.sender = sender;
+    }
+
+    public List<String> getGroup() {
+        return group;
+    }
+
+    public void setGroup(List<String> group) {
+        this.group = group;
+    }
 }

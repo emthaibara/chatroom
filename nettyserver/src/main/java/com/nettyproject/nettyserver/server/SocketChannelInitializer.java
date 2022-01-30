@@ -22,6 +22,7 @@ public class SocketChannelInitializer extends ChannelInitializer<NioSocketChanne
 
     @Override
     protected void initChannel(NioSocketChannel nioSocketChannel) throws Exception {
+
         nioSocketChannel
                 .pipeline()
                 //http请求解码器，websocket建立之前首先需要发送一个http请求，请求升级协议

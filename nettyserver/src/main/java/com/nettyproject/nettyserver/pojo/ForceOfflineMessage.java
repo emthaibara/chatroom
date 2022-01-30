@@ -7,16 +7,31 @@ package com.nettyproject.nettyserver.pojo;
 */
 
 
-public class ForceOfflineMessage {
+public class ForceOfflineMessage extends AbstractMessage{
+
     /**
      * 发起者
      */
-    protected long sender;
+    private String sender;
 
     /**
      * 接收者
      */
-    protected long receiver;
+    private String receiver;
 
-    private String token;
+    public String getSender() {
+        return sender;
+    }
+
+    public void setSender(String sender) {
+        this.sender = sender;
+    }
+
+    public String getReceiver() {
+        return receiver;
+    }
+
+    public void setReceiver(String receiver) {
+        this.receiver = receiver;
+    }
 }

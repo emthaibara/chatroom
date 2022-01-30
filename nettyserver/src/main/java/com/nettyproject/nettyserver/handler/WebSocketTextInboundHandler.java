@@ -5,6 +5,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.nettyproject.nettyserver.enums.MessageTypeEnum;
 import com.nettyproject.nettyserver.pojo.*;
 import com.nettyproject.nettyserver.util.SpringContextUtils;
+import io.netty.channel.Channel;
 import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
@@ -33,19 +34,20 @@ public class WebSocketTextInboundHandler extends SimpleChannelInboundHandler<Tex
 
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, TextWebSocketFrame msg) throws Exception {
+
         String json = msg.text();
-        handle(JSON.parseObject(json));
+        handle(JSON.parseObject(json),ctx.channel());
     }
 
     private static final String TYPE = "type";
     private static final String DATA = "data";
 
-    private void handle(JSONObject jsonObject) {
+    private void handle(JSONObject jsonObject, Channel channel) {
         final Integer type = jsonObject.getObject(TYPE,Integer.class);
 
         //不同消息类型区分不同的事务
         if (type.equals(MessageTypeEnum.BIND.getType())){
-            handler.doBind(jsonObject.getObject(DATA,BindAskMessage.class));
+            handler.doBind(jsonObject.getObject(DATA,BindAskMessage.class),channel);
         }
 
         if (type.equals(MessageTypeEnum.PRIVATE_CHAT.getType())){

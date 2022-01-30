@@ -5,41 +5,40 @@ package com.nettyproject.nettyserver.pojo;
  * @time:2022/1/25
  */
 
-public class PrivateChatMessage{
+public class PrivateChatMessage extends AbstractMessage{
 
     /**
      * 发起者
      */
-    protected long sender;
+    private String sender;
 
     /**
      * 接收者
      */
-    protected long receiver;
+    private String receiver;
 
-    private String token;
+    @Override
+    public String toString() {
+        return "PrivateChatMessage{" +
+                "sender=" + sender +
+                ", receiver=" + receiver +
+                ", token='" + token + '\'' +
+                '}';
+    }
 
-    public long getSender() {
+    public String getSender() {
         return sender;
     }
 
-    public void setSender(long sender) {
+    public void setSender(String sender) {
         this.sender = sender;
     }
 
-    public long getReceiver() {
+    public String getReceiver() {
         return receiver;
     }
 
-    public void setReceiver(long receiver) {
+    public void setReceiver(String receiver) {
         this.receiver = receiver;
-    }
-
-    public String getToken() {
-        return token;
-    }
-
-    public void setToken(String token) {
-        this.token = token;
     }
 }

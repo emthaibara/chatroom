@@ -11,18 +11,19 @@ import java.util.concurrent.ConcurrentHashMap;
 /**
  * @Author:SCBC_LiYongJie
  * @time:2022/1/26
+ *          phoneNumber : Channel
  */
 
 public class UserChannelMapUtil {
 
     private static final ChannelGroup CHANNEL_GROUP = new DefaultChannelGroup(GlobalEventExecutor.INSTANCE);
-    private static final Map<Long, Channel> USER_CHANNEL = new ConcurrentHashMap<>(256);
+    private static final Map<String, Channel> USER_CHANNEL = new ConcurrentHashMap<>(256);
 
-    public static void doBind(long uuid,Channel channel){
+    public static void doBind(String id,Channel channel){
 
     }
 
-    public static void unBind(long uuid){
+    public static void unBind(String id){
 
     }
 

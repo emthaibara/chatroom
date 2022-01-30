@@ -5,8 +5,26 @@ package com.nettyproject.nettyserver.pojo;
  * @time:2022/1/25
  */
 
-public class BindAskMessage {
+public class BindAskMessage extends AbstractMessage{
 
-    private String bidToken;
+    private Boolean bindResult = false;
+
+    private String codeMsg;
+
+    public String getCodeMsg() {
+        return codeMsg;
+    }
+
+    public void setCodeMsg(String codeMsg) {
+        this.codeMsg = codeMsg;
+    }
+
+    public Boolean getBindResult() {
+        return bindResult;
+    }
+
+    public void setBindResult(Boolean bindResult) {
+        this.bindResult = bindResult;
+    }
 
 }

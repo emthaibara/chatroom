@@ -1,0 +1,19 @@
+package com.nettyproject.nettyserver.pojo;
+
+/**
+ * @Author:SCBC_LiYongJie
+ * @time:2022/1/30
+ */
+public class AbstractMessage {
+
+    protected String token;
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
+
+}

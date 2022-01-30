@@ -1,9 +1,8 @@
 package com.nettyproject.nettyserver.controller;
 
 import com.nettyproject.nettyserver.handler.SendMessageHandler;
-import com.nettyproject.nettyserver.pojo.BindAskMessage;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
+import com.nettyproject.nettyserver.pojo.PrivateChatMessage;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
@@ -19,8 +18,14 @@ public class TestController {
     @Resource
     private SendMessageHandler sendMessageHandler;
 
-    @RequestMapping("/message")
-    public String message(@RequestBody BindAskMessage message){
+    @GetMapping("/message")
+    public String message(){
+        PrivateChatMessage privateChatMessage = new PrivateChatMessage();
+        privateChatMessage.setSender("187872718L");
+        privateChatMessage.setToken("7812dgh19819hnoo12jdi");
+        privateChatMessage.setReceiver("721982891L");
+        System.out.println(privateChatMessage.getClass());
+        sendMessageHandler.sendToAFriendMsg(privateChatMessage);
         return "Hello World";
     }
 
