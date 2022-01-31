@@ -29,13 +29,14 @@ public class Test {
         System.out.println(groupChatMessage.toString());
 
         System.out.println(groupChatMessage.getReceivers().toString());
-
     }
 }
 class a{
     public static void main(String[] args) {
-        System.out.println(JwtUtil.generateToken("张三","13266746457"));
-        System.out.println(JwtUtil.generateToken("李四","13266746456"));
-        System.out.println(JwtUtil.generateToken("王五","13266746457"));
+        System.out.println(JwtUtil.generateToken("Niu","13266746455"));
+        System.out.println(JwtUtil.generateToken("Baby","13266746454"));
+        System.out.println(JwtUtil.generateToken("Hello","13266746453"));
+        System.out.println(JwtUtil.generateToken("SanSha","13266746452"));
+        System.out.println(JwtUtil.generateToken("ShaGou","13266746451"));
     }
 }

@@ -5,7 +5,6 @@ import com.nettyproject.nettyserver.pojo.*;
 import com.nettyproject.nettyserver.util.JwtUtil;
 import com.nettyproject.nettyserver.util.UserChannelMapUtil;
 import io.netty.channel.Channel;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 
